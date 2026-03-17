@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#0e1240">
+<title>Elio's Optical — Landing Copa Mundial 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0e1240;--navy2:#161b52;--cherry:#c0001a;--cherry2:#e5001f;--gold:#c8922b;--gold2:#e8ae3e;--white:#fdf8f3;--gray:#8a8a9a;--light:#f2ede8;--green:#1a6b3c}
+html{font-family:'Barlow',sans-serif;background:var(--white);color:var(--navy);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+img,svg{max-width:100%;display:block}
+button,input,select,textarea{font-family:inherit}
+
+/* NAV */
+.nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 1rem;height:52px;position:sticky;top:0;z-index:100;border-bottom:2px solid var(--cherry)}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.25rem;color:var(--white);letter-spacing:2px;white-space:nowrap}
+.nav-logo span{color:var(--gold2)}
+.nav-cta{background:var(--cherry);color:var(--white);border:none;padding:.45rem 1rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:.75rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;clip-path:polygon(5px 0%,100% 0%,calc(100% - 5px) 100%,0% 100%);transition:background .2s;white-space:nowrap;-webkit-tap-highlight-color:transparent}
+.nav-cta:hover,.nav-cta:active{background:var(--cherry2)}
+
+/* HERO — mobile: stacked */
+.hero{background:var(--navy);display:flex;flex-direction:column;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,.025) 40px);pointer-events:none}
+.hero::after{content:'';position:absolute;left:0;right:0;bottom:0;height:44%;background:var(--cherry);clip-path:polygon(0 18%,100% 0%,100% 100%,0% 100%);z-index:0}
+.hero-left{position:relative;z-index:1;padding:2.5rem 1.25rem 1.5rem;display:flex;flex-direction:column}
+.hero-badge{display:inline-flex;align-items:center;gap:.35rem;background:rgba(200,146,43,.15);border:1px solid var(--gold);color:var(--gold2);font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:.3rem .65rem;margin-bottom:1rem;width:fit-content}
+.hero-badge::before{content:'⚽';font-size:.85rem}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3rem,14vw,5.5rem);color:var(--white);line-height:.95;letter-spacing:1px;margin-bottom:.85rem}
+.hero-title em{color:var(--gold2);font-style:normal;display:block}
+.hero-sub{color:rgba(255,255,255,.8);font-size:.92rem;line-height:1.55;margin-bottom:1.5rem;max-width:420px}
+.hero-btns{display:flex;gap:.65rem;flex-wrap:wrap}
+.btn-primary{background:var(--gold2);color:var(--navy);border:none;padding:.75rem 1.5rem;font-family:'Barlow',sans-serif;font-weight:700;font-size:.85rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);transition:background .2s,transform .15s;-webkit-tap-highlight-color:transparent}
+.btn-primary:hover{background:var(--gold)}
+.btn-primary:active{transform:scale(.97)}
+.btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.35);padding:.75rem 1.25rem;font-family:'Barlow',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;transition:border-color .2s;-webkit-tap-highlight-color:transparent}
+.btn-ghost:hover,.btn-ghost:active{border-color:var(--white)}
+.hero-right{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;padding:1.75rem 1.25rem 2.5rem;text-align:center}
+.hero-prize-label{font-family:'Bebas Neue',sans-serif;font-size:.8rem;letter-spacing:3px;color:rgba(255,255,255,.65);text-transform:uppercase;margin-bottom:.3rem}
+.hero-prize-amount{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,16vw,7rem);color:var(--white);line-height:1}
+.hero-prize-amount span{color:var(--navy)}
+.hero-prize-sub{color:rgba(255,255,255,.7);font-size:.82rem;margin-top:.25rem;margin-bottom:1.25rem}
+.cd-label{margin-bottom:.5rem;font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.hero-counts{display:flex;gap:.5rem;justify-content:center}
+.hero-count-box{background:rgba(0,0,0,.28);border:1px solid rgba(255,255,255,.15);padding:.5rem .65rem;text-align:center;min-width:54px}
+.hero-count-num{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;color:var(--white);line-height:1}
+.hero-count-lbl{font-size:.55rem;color:rgba(255,255,255,.45);letter-spacing:1px;text-transform:uppercase}
+.countdown-sep{font-family:'Bebas Neue',sans-serif;font-size:1.75rem;color:var(--gold2);align-self:center;margin-top:-3px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.sep-blink{animation:pulse 1s infinite}
+
+/* SECTIONS */
+.section{padding:3rem 1.25rem}
+.section-label{font-size:.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--cherry);margin-bottom:.35rem}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,8vw,2.8rem);color:var(--navy);line-height:1;margin-bottom:2rem}
+
+/* PRIZES mobile: 1col */
+.prizes-grid{display:grid;grid-template-columns:1fr;gap:.85rem}
+.prize-card{background:var(--navy2);color:var(--white);border:1px solid rgba(255,255,255,.07);padding:1.5rem;position:relative;overflow:hidden;transition:transform .2s}
+.prize-card:active{transform:scale(.99)}
+.prize-card.featured{border-color:var(--gold);order:-1}
+.prize-card.featured::before{content:'GRAN PREMIO';position:absolute;top:10px;right:-20px;background:var(--gold2);color:var(--navy);font-size:.58rem;font-weight:700;letter-spacing:1.5px;padding:3px 26px;transform:rotate(30deg)}
+.prize-freq{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:.4rem}
+.prize-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;line-height:1.1;margin-bottom:.3rem}
+.prize-value{font-size:.82rem;color:rgba(255,255,255,.5)}
+.prize-ball{font-size:2rem;position:absolute;bottom:.75rem;right:.75rem;opacity:.12}
+
+/* STEPS mobile: vertical list */
+.steps-section{background:var(--light)}
+.steps-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;position:relative}
+.step{display:flex;align-items:flex-start;gap:1rem;text-align:left}
+.step-num{width:56px;height:56px;min-width:56px;border-radius:50%;background:var(--navy);color:var(--white);font-family:'Bebas Neue',sans-serif;font-size:1.75rem;display:flex;align-items:center;justify-content:center;border:3px solid var(--white);box-shadow:0 0 0 3px var(--cherry);flex-shrink:0}
+.step:nth-child(2) .step-num{background:var(--cherry);box-shadow:0 0 0 3px var(--gold2)}
+.step:nth-child(3) .step-num{background:var(--gold);box-shadow:0 0 0 3px var(--navy)}
+.step-body{padding-top:.25rem}
+.step-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--navy);letter-spacing:1px;margin-bottom:.25rem}
+.step-desc{font-size:.88rem;color:var(--gray);line-height:1.5}
+
+/* FORM */
+.form-section{background:var(--navy)}
+.form-section .section-title{color:var(--white)}
+.form-section .section-label{color:var(--gold2)}
+.form-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+.form-note{color:rgba(255,255,255,.55);font-size:.88rem;line-height:1.6;margin-bottom:1.25rem}
+.form-row{margin-bottom:.9rem}
+.form-2col{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
+.form-label{display:block;font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold2);margin-bottom:.3rem}
+.form-input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:var(--white);padding:.7rem .85rem;font-family:'Barlow',sans-serif;font-size:1rem;outline:none;transition:border-color .2s;border-radius:0;-webkit-appearance:none;appearance:none}
+.form-input:focus{border-color:var(--gold2)}
+.form-input::placeholder{color:rgba(255,255,255,.25)}
+select.form-input{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23e8ae3e' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85rem center;padding-right:2.25rem}
+.form-check{display:flex;align-items:flex-start;gap:.6rem;margin-bottom:.85rem}
+.form-check input[type=checkbox]{margin-top:4px;min-width:16px;height:16px;accent-color:var(--gold2);cursor:pointer}
+.form-check label{font-size:.8rem;color:rgba(255,255,255,.5);cursor:pointer;line-height:1.45}
+.form-check label a{color:var(--gold2)}
+.form-submit{width:100%;background:var(--cherry);color:var(--white);border:none;padding:1rem;font-family:'Bebas Neue',sans-serif;font-size:1.15rem;letter-spacing:2px;cursor:pointer;margin-top:.25rem;transition:background .2s;clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);-webkit-tap-highlight-color:transparent}
+.form-submit:hover{background:var(--cherry2)}
+.form-submit:active{transform:scale(.99)}
+.form-success{background:rgba(26,107,60,.2);border:1px solid var(--green);padding:1rem;margin-top:.85rem;display:none}
+.form-success.show{display:block}
+.form-success p{color:#4caf7d;font-weight:600;font-size:.88rem}
+.form-legal{margin-top:1.1rem;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.1);font-size:.7rem;color:rgba(255,255,255,.3);line-height:1.65}
+.form-legal a{color:rgba(255,255,255,.5);text-decoration:underline;cursor:pointer}
+.form-info{border-top:2px solid rgba(255,255,255,.08);padding-top:1.5rem}
+.form-info-title{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--gold2);margin-bottom:1rem;letter-spacing:1px}
+.form-info-item{display:flex;gap:.75rem;margin-bottom:.9rem;align-items:flex-start}
+.form-info-icon{width:36px;height:36px;min-width:36px;border-radius:50%;background:rgba(200,146,43,.15);display:flex;align-items:center;justify-content:center;font-size:1rem}
+.form-info-text strong{display:block;font-size:.88rem;color:var(--white);font-weight:600}
+.form-info-text span{font-size:.78rem;color:rgba(255,255,255,.4)}
+.winners-box{margin-top:1.25rem;padding:1rem;background:rgba(200,146,43,.1);border-left:3px solid var(--gold2)}
+.winners-label{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:.35rem}
+.winners-list{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.9}
+
+/* STORES */
+.stores-section{background:var(--light)}
+.stores-grid{display:grid;grid-template-columns:1fr 1fr;gap:.85rem}
+.store-card{background:var(--white);border:1px solid rgba(0,0,0,.07);padding:1.1rem;border-top:3px solid var(--cherry)}
+.store-city{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--navy);letter-spacing:1px;margin-bottom:.2rem}
+.store-address{font-size:.78rem;color:var(--gray);line-height:1.4}
+.store-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:4px;vertical-align:middle}
+
+/* FOOTER */
+.footer{background:#080c2e;padding:1.5rem 1.25rem}
+.footer-inner{display:flex;flex-direction:column;gap:.65rem}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:.95rem;color:rgba(255,255,255,.35);letter-spacing:2px}
+.footer-legal{font-size:.68rem;color:rgba(255,255,255,.22);line-height:1.6}
+.footer-legal a{color:rgba(255,255,255,.4);text-decoration:underline}
+
+/* MODAL */
+@keyframes slideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.np-overlay{display:none;position:fixed;inset:0;background:rgba(8,12,46,.85);z-index:999;align-items:center;justify-content:center;padding:1rem;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.np-overlay.open{display:flex}
+.np-modal{background:var(--navy2);border:1px solid var(--gold);width:100%;max-width:440px;animation:slideUp .25s ease;position:relative;margin:auto}
+.np-header{background:var(--navy);border-bottom:2px solid var(--cherry);padding:1.1rem 1.25rem;display:flex;align-items:center;justify-content:space-between}
+.np-header-badge{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:.15rem}
+.np-header-title{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--white);letter-spacing:1px;line-height:1}
+.np-close{background:none;border:none;color:rgba(255,255,255,.4);font-size:1.3rem;cursor:pointer;line-height:1;padding:.25rem .35rem;transition:color .2s;min-width:40px;min-height:40px;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
+.np-close:hover,.np-close:active{color:#fff}
+.np-body{padding:1.35rem 1.25rem}
+.np-note{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.6;margin-bottom:1.15rem}
+.np-field{margin-bottom:.85rem}
+.np-label{display:block;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold2);margin-bottom:.3rem}
+.np-submit{width:100%;background:var(--gold2);color:var(--navy);border:none;padding:.9rem;font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:2px;cursor:pointer;clip-path:polygon(7px 0%,100% 0%,calc(100% - 7px) 100%,0% 100%);transition:background .2s;-webkit-tap-highlight-color:transparent}
+.np-submit:hover{background:var(--gold)}
+.np-submit:active{transform:scale(.99)}
+.np-success{display:none;margin-top:.85rem;background:rgba(26,107,60,.2);border:1px solid var(--green);padding:.9rem}
+.np-success p{color:#4caf7d;font-weight:600;font-size:.88rem}
+.np-fine{margin-top:.9rem;font-size:.62rem;color:rgba(255,255,255,.2);line-height:1.55}
+
+/* TABLET ≥600px */
+@media(min-width:600px){
+  .nav{padding:0 1.75rem}
+  .nav-logo{font-size:1.4rem}
+  .section{padding:3.5rem 2rem}
+  .prizes-grid{grid-template-columns:1fr 1fr}
+  .prize-card.featured{order:0}
+  .steps-grid{grid-template-columns:repeat(3,1fr);gap:0}
+  .steps-grid::before{content:'';position:absolute;top:28px;left:16.66%;right:16.66%;height:2px;background:linear-gradient(90deg,var(--cherry),var(--gold2));z-index:0}
+  .step{flex-direction:column;align-items:center;text-align:center;padding:0 1rem 1rem}
+  .stores-grid{grid-template-columns:repeat(4,1fr)}
+  .footer-inner{flex-direction:row;align-items:center;justify-content:space-between}
+  .footer-legal{text-align:right}
+}
+
+/* DESKTOP ≥900px */
+@media(min-width:900px){
+  .nav{padding:0 2.5rem;height:56px}
+  .nav-logo{font-size:1.5rem}
+  .nav-cta{font-size:.82rem;padding:.45rem 1.25rem}
+  .hero{flex-direction:row;min-height:520px}
+  .hero::after{left:auto;right:0;top:0;bottom:0;width:55%;height:auto;clip-path:polygon(8% 0,100% 0,100% 100%,0% 100%)}
+  .hero-left{padding:3.5rem 2rem 3.5rem 2.5rem;width:50%;justify-content:center}
+  .hero-right{width:50%;padding:2rem;justify-content:center}
+  .hero-title{font-size:clamp(3.5rem,5vw,5.5rem)}
+  .hero-prize-amount{font-size:clamp(4rem,6vw,7rem)}
+  .hero-count-num{font-size:2rem}
+  .hero-count-box{min-width:64px;padding:.6rem 1rem}
+  .hero-counts{gap:1rem}
+  .countdown-sep{font-size:2rem}
+  .section{padding:4rem 2.5rem}
+  .prizes-grid{grid-template-columns:1fr 1.15fr 1fr}
+  .prize-card:hover{transform:translateY(-3px)}
+  .form-grid{grid-template-columns:1fr 1fr;gap:2rem}
+  .form-info{border-top:none;padding-top:0;border-left:2px solid rgba(255,255,255,.1);padding-left:1.75rem}
+  .footer{padding:1.5rem 2.5rem}
+}
+
+@media(min-width:1200px){
+  .nav{padding:0 3rem}
+  .hero-left{padding:4rem 2.5rem 4rem 3rem}
+  .section{padding:5rem 3rem}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">ELIO'S <span>OPTICAL</span></div>
+  <button class="nav-cta" onclick="document.getElementById('registro').scrollIntoView({behavior:'smooth'})">Participar ahora</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">Promoción Copa Mundial 2026</div>
+    <h1 class="hero-title">Gana con<br><em>Elio's Optical</em></h1>
+    <p class="hero-sub">Compra tus lentes en cualquiera de nuestras tiendas y entra al sorteo más grande del año. Premios cada semana.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('registro').scrollIntoView({behavior:'smooth'})">Participar ahora</button>
+      <button class="btn-ghost" onclick="document.getElementById('premios').scrollIntoView({behavior:'smooth'})">Ver premios</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-prize-label">Gran premio final</div>
+    <div class="hero-prize-amount">$3<span>,</span>000</div>
+    <div class="hero-prize-sub">en premios totales de la promoción</div>
+    <div class="cd-label">Próximo sorteo en</div>
+    <div class="hero-counts">
+      <div class="hero-count-box"><div class="hero-count-num" id="cd-d">05</div><div class="hero-count-lbl">días</div></div>
+      <div class="countdown-sep sep-blink">:</div>
+      <div class="hero-count-box"><div class="hero-count-num" id="cd-h">14</div><div class="hero-count-lbl">hrs</div></div>
+      <div class="countdown-sep sep-blink">:</div>
+      <div class="hero-count-box"><div class="hero-count-num" id="cd-m">32</div><div class="hero-count-lbl">min</div></div>
+      <div class="countdown-sep sep-blink">:</div>
+      <div class="hero-count-box"><div class="hero-count-num" id="cd-s">00</div><div class="hero-count-lbl">seg</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="premios">
+  <div class="section-label">Lo que puedes ganar</div>
+  <div class="section-title">Premios de la Promoción</div>
+  <div class="prizes-grid">
+    <div class="prize-card">
+      <div class="prize-freq">Sorteo semanal</div>
+      <div class="prize-name">Lentes + Examen de vista</div>
+      <div class="prize-value">Valor $200 · Cada semana durante el Mundial</div>
+      <div class="prize-ball">⚽</div>
+    </div>
+    <div class="prize-card featured">
+      <div class="prize-freq">Sorteo final</div>
+      <div class="prize-name">Viaje al<br>Mundial 2026</div>
+      <div class="prize-value">Gran Premio · Valor $3,000</div>
+      <div class="prize-ball">🏆</div>
+    </div>
+    <div class="prize-card">
+      <div class="prize-freq">Sorteo quincenal</div>
+      <div class="prize-name">Gift Card + Monturas exclusivas</div>
+      <div class="prize-value">Valor $500 · Cada dos semanas</div>
+      <div class="prize-ball">🎁</div>
+    </div>
+  </div>
+</section>
+
+<section class="section steps-section">
+  <div class="section-label">Es muy fácil</div>
+  <div class="section-title">Cómo participar</div>
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Visita una tienda</div>
+        <div class="step-desc">Compra cualquier par de lentes en cualquiera de nuestras 4 tiendas en South Florida.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Regístrate aquí</div>
+        <div class="step-desc">Ingresa tus datos y el número de tu recibo en el formulario de abajo. Solo toma 1 minuto.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">¡Espera y gana!</div>
+        <div class="step-desc">Te notificamos por email si eres ganador. ¡Mientras más participas, más chances tienes!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section form-section" id="registro">
+  <div class="section-label">¡Entra al sorteo!</div>
+  <div class="section-title">Regístrate para participar</div>
+  <div class="form-grid">
+    <div>
+      <p class="form-note">Completa el formulario con los datos de tu compra. Todos los campos son requeridos para validar tu participación.</p>
+      <div class="form-2col">
+        <div class="form-row">
+          <label class="form-label">Nombre</label>
+          <input class="form-input" type="text" placeholder="Juan" autocomplete="given-name">
+        </div>
+        <div class="form-row">
+          <label class="form-label">Apellido</label>
+          <input class="form-input" type="text" placeholder="Rodríguez" autocomplete="family-name">
+        </div>
+      </div>
+      <div class="form-row">
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" placeholder="juan@email.com" autocomplete="email" inputmode="email">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Teléfono</label>
+        <input class="form-input" type="tel" placeholder="+1 (305) 000-0000" autocomplete="tel" inputmode="tel">
+      </div>
+      <div class="form-row">
+        <label class="form-label">Tienda visitada</label>
+        <select class="form-input">
+          <option value="" disabled selected>Selecciona una tienda</option>
+          <option>Miami — W. Flagler St.</option>
+          <option>Doral</option>
+          <option>Deerfield Beach</option>
+          <option>Otra ubicación</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label class="form-label">N.° de recibo / factura</label>
+        <input class="form-input" type="text" placeholder="Ej: 000-12345" inputmode="numeric">
+      </div>
+      <div class="form-check">
+        <input type="checkbox" id="terms">
+        <label for="terms">Acepto los <a>términos y condiciones</a> de la promoción Copa Mundial 2026</label>
+      </div>
+      <button class="form-submit" id="main-submit" onclick="submitForm()">⚽ Participar en el sorteo</button>
+      <div class="form-success" id="form-success"><p>✓ ¡Registro exitoso! Te notificaremos si eres ganador.</p></div>
+      <div class="form-legal">
+        No purchase necessary. Para participar sin realizar una compra, <a onclick="openNoPurchase()">haz clic aquí</a>. · <a>Bases legales completas</a> · Promoción válida en tiendas participantes en Florida. Open to US residents 18+.
+      </div>
+    </div>
+    <div>
+      <div class="form-info">
+        <div class="form-info-title">¿Por qué participar?</div>
+        <div class="form-info-item"><div class="form-info-icon">🏆</div><div class="form-info-text"><strong>Premios reales cada semana</strong><span>Sorteos semanales, quincenales y el gran final.</span></div></div>
+        <div class="form-info-item"><div class="form-info-icon">⚡</div><div class="form-info-text"><strong>Registro en 60 segundos</strong><span>Solo necesitas tu nombre, email y número de recibo.</span></div></div>
+        <div class="form-info-item"><div class="form-info-icon">📧</div><div class="form-info-text"><strong>Te avisamos si ganas</strong><span>Recibirás un email de confirmación inmediatamente.</span></div></div>
+        <div class="form-info-item"><div class="form-info-icon">🔒</div><div class="form-info-text"><strong>Tus datos están protegidos</strong><span>Solo usamos tu información para la promoción.</span></div></div>
+        <div class="winners-box">
+          <div class="winners-label">Ganadores anteriores</div>
+          <div class="winners-list">Juan R. — Miami Flagler — Mar 8 ✓<br>Ana M. — Doral — Mar 1 ✓<br>Carlos V. — Deerfield — Feb 22 ✓</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section stores-section" id="tiendas">
+  <div class="section-label">Dónde participar</div>
+  <div class="section-title">Nuestras tiendas</div>
+  <div class="stores-grid">
+    <div class="store-card"><div class="store-city">Miami — Flagler</div><div class="store-address">W. Flagler St., Miami, FL<br><span class="store-dot"></span>Abierto hoy</div></div>
+    <div class="store-card"><div class="store-city">Doral</div><div class="store-address">Doral, FL<br><span class="store-dot"></span>Abierto hoy</div></div>
+    <div class="store-card"><div class="store-city">Deerfield Beach</div><div class="store-address">Deerfield Beach, FL<br><span class="store-dot"></span>Abierto hoy</div></div>
+    <div class="store-card" style="border-top-color:var(--gold);background:var(--navy2)"><div class="store-city" style="color:var(--gold2)">+1 ubicación</div><div class="store-address" style="color:rgba(255,255,255,.5)">Próximamente<br><span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold2);margin-right:4px;vertical-align:middle"></span>Coming soon</div></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">ELIO'S OPTICAL — COPA MUNDIAL 2026</div>
+    <div class="footer-legal">© 2026 Elio's Optical · No purchase necessary · <a>Official Rules</a> · <a>Privacy Policy</a><br>Void where prohibited. Open to US residents 18+. Sponsored by Elio's Optical.</div>
+  </div>
+</footer>
+
+<!-- MODAL SIN COMPRA -->
+<div id="np-overlay" class="np-overlay" onclick="if(event.target===this)closeNoPurchase()">
+  <div class="np-modal">
+    <div class="np-header">
+      <div><div class="np-header-badge">Sin compra necesaria</div><div class="np-header-title">Participar gratis</div></div>
+      <button class="np-close" onclick="closeNoPurchase()">✕</button>
+    </div>
+    <div class="np-body">
+      <p class="np-note">Puedes participar en el sorteo sin realizar ninguna compra. Tienes exactamente las mismas probabilidades de ganar.</p>
+      <div class="np-field"><label class="np-label" for="np-nombre">Nombre completo</label><input id="np-nombre" class="form-input" type="text" placeholder="Juan Rodríguez" autocomplete="name"></div>
+      <div class="np-field"><label class="np-label" for="np-email">Email</label><input id="np-email" class="form-input" type="email" placeholder="juan@email.com" autocomplete="email" inputmode="email"></div>
+      <div class="np-field"><label class="np-label" for="np-tel">Teléfono</label><input id="np-tel" class="form-input" type="tel" placeholder="+1 (305) 000-0000" autocomplete="tel" inputmode="tel"></div>
+      <div class="form-check" style="margin-bottom:1rem">
+        <input type="checkbox" id="np-terms">
+        <label for="np-terms" style="font-size:.78rem;color:rgba(255,255,255,.45);cursor:pointer;line-height:1.45">Acepto los <a style="color:var(--gold2)">términos y condiciones</a> de la promoción</label>
+      </div>
+      <button class="np-submit" id="np-btn" onclick="submitNoPurchase()">⚽ Participar sin compra</button>
+      <div class="np-success" id="np-success"><p>✓ ¡Registro exitoso! Te notificaremos si eres ganador.</p></div>
+      <p class="np-fine">No purchase necessary to enter or win. Open to US residents 18+. Void where prohibited. One entry per person.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function updateCountdown(){
+  var now=new Date(),next=new Date(now);
+  next.setDate(next.getDate()+(7-next.getDay()));next.setHours(0,0,0,0);
+  var diff=next-now;if(diff<=0)return;
+  function pad(n){return String(n).padStart(2,'0')}
+  document.getElementById('cd-d').textContent=pad(Math.floor(diff/86400000));
+  document.getElementById('cd-h').textContent=pad(Math.floor((diff%86400000)/3600000));
+  document.getElementById('cd-m').textContent=pad(Math.floor((diff%3600000)/60000));
+  document.getElementById('cd-s').textContent=pad(Math.floor((diff%60000)/1000));
+}
+updateCountdown();setInterval(updateCountdown,1000);
+
+function submitForm(){
+  if(!document.getElementById('terms').checked){alert('Debes aceptar los términos para participar.');return}
+  document.getElementById('form-success').classList.add('show');
+  var btn=document.getElementById('main-submit');
+  btn.disabled=true;btn.textContent='✓ Registrado';btn.style.background='var(--green)';btn.style.clipPath='none';
+}
+
+function openNoPurchase(){
+  document.getElementById('np-overlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(function(){document.getElementById('np-nombre').focus()},100);
+}
+function closeNoPurchase(){
+  document.getElementById('np-overlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeNoPurchase()});
+
+function submitNoPurchase(){
+  var nombre=document.getElementById('np-nombre').value.trim();
+  var email=document.getElementById('np-email').value.trim();
+  var tel=document.getElementById('np-tel').value.trim();
+  if(!nombre||!email||!tel){alert('Por favor completa todos los campos.');return}
+  if(!document.getElementById('np-terms').checked){alert('Debes aceptar los términos para participar.');return}
+  document.getElementById('np-success').style.display='block';
+  var btn=document.getElementById('np-btn');
+  btn.disabled=true;btn.textContent='✓ Registrado';btn.style.background='var(--green)';btn.style.color='#fff';
+}
+</script>
+</body>
+</html>
